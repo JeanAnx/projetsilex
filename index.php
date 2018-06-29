@@ -22,7 +22,9 @@ $app->register(new Silex\Provider\AssetServiceProvider());
 
 /** HOME **/
 
-$app->get('/','MonProjet\Controller\HomeController::main');
+$app->get('/','MonProjet\Controller\HomeController::main')
+->bind('home');
+;
 
 
 
@@ -30,19 +32,28 @@ $app->get('/','MonProjet\Controller\HomeController::main');
 
 $app->get('/hello/{name}', function ($name) use ($app) {
     return 'Hello ' . $app->escape($name);
-});
+})
+->bind('hello');
+
 
 /******** FLICKER***/
 
-$app->get('/flickr',function(){
-
-	return "<h2>flicker</h2>";
-});
+$app->get('/flickr','MonProjet\Controller\FlickrController::main')
+->bind('flickr');
+;
 
 /******** CUSTOMERS ******/
 
 $app->get('/customers','MonProjet\Controller\CustomersController::main')
 ->bind('customers');
 
+
+
+/******** HELLO WORLD ******/
+
+$app->get('/helloworld',function() {
+	return 'HELLO WORLD';
+})
+->bind('helloworld');
 
 $app->run();
