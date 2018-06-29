@@ -1,0 +1,45 @@
+{{ include('header.twig')}}
+
+	<h2>Customers</h2>
+		
+		<form action="" method="get">
+
+			<fieldset>
+				<legend> Recherche de clients par pays</legend>
+
+				<input type="text" name="country" placeholder="Veuillez entrer un pays">
+
+				<button type="submit">Search</button>
+
+			</fieldset>
+
+		</form>
+
+		<table>
+			
+			<thead>
+				<td>Nom de l'entreprise</td>
+				<td>Référent</td>
+				<td>Téléphone</td>
+				<td>Ville</td>
+				<td>Pays</td>
+
+
+
+			</thead>
+
+ 			{% for customer in customers %}
+				<tr> 
+
+				<td> {{ customer.customerName }} </td>
+				<td> {{ customer.contactFirstName }} {{ customer.contactLastName }} </td>
+				<td> {{ customer.phone }} </td>
+				<td> {{ customer.city }} </td>
+				<td> {{ customer.country }} </td>
+
+			{% endfor %}
+
+		</table>
+ 
+</body>
+</html>

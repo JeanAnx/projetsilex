@@ -1,0 +1,19 @@
+
+{{ include ('header.twig') }}
+
+	<p> Bienvenu(e) {{name}} !</p>
+
+	<ul>
+		{% for fruit in fruits %}
+			<li> {{ fruit.name}} est de couleur {{ fruit.color }} </li>
+
+		{% endfor %}
+
+	</ul>
+
+	<a href="http://localhost/PHP/PackageManager/ProjetSilex/index.php/">Hello World</a>
+	<a href=" {{ path('customers') }} ">Customers</a>
+	<a href="http://localhost/PHP/PackageManager/ProjetSilex/index.php/hello/you">Dire Bonjour</a>
+	<a href="http://localhost/PHP/PackageManager/ProjetSilex/index.php/flickr">Flickr</a>
+
+</body>
